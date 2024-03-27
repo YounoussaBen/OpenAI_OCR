@@ -1,6 +1,3 @@
-Here's the modified README to include instructions for creating a virtual environment and installing dependencies within it:
-
-```markdown
 # API Documentation
 
 This API extracts text from images using OpenAI's GPT-4 with Vision model.
@@ -131,5 +128,3 @@ Contributions are welcome! If you find any issues or want to add new features, f
 
 This project is licensed under the [MIT License](LICENSE).
 ```
-
-This README now includes instructions for creating a virtual environment named `env`, activating it, and installing dependencies within it using pip.
