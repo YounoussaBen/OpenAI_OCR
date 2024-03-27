@@ -1,0 +1,88 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+venv.bak/
+*.venv
+ENV/
+env/
+ENV.bak/
+env.bak/
+__env/
+.venv/
+env/
+env.bak/
+.venv.bak/
+env.bak/
+# venv and Virtualenv environment files
+*.py[co]
+.env
+
+# Flask debugging logs
+*.pyc
+
+# Local development settings
+/.vscode/
+/.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+docker-compose.yml
+
+# Editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Environment variables file
+.env
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Log files and directories
+*.log
+logs/
+
+# Caches and backups
+*.cache
+*.db*
+*.sql
+*.sqlite
+backup*/
+tmp*/
+
+# Dependencies
+/.venv/
+/node_modules/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python egg metadata
+*.egg-info
+*.egg-info/
