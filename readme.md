@@ -28,8 +28,8 @@ Before running the Flask API, make sure you have the following installed:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone [<repository_url>](https://github.com/YounoussaBen/OpenAI_OCR.git)
+   cd OpenAI_OCR
    ```
 
 2. Create a virtual environment named `env`:
