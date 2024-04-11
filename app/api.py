@@ -42,7 +42,7 @@ def extract_text():
                     "content": [
                         {
                             "type": "text",
-                            "text": "This image contains text. Can you extract it and present it just like you see it in the image ?"
+                            "text": "What is the menu in this image? Please provide it in JSON format."
                         },
                         {
                             "type": "image_url",
