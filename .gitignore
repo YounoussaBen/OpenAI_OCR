@@ -86,3 +86,5 @@ MANIFEST
 # Python egg metadata
 *.egg-info
 *.egg-info/
+
+*.json
