@@ -1,6 +1,6 @@
 # API Documentation
 
-This API extracts text from images using OpenAI's GPT-4 with Vision model.
+This API provides several endpoints to extract text from images using OpenAI's GPT-4 with Vision model and generate an image of a store menu using OpenAI's DALL-E model.
 
 ## Table of Contents
 
@@ -69,7 +69,7 @@ You can run the Flask server using either Python directly or Gunicorn. Additiona
 To run the Flask server with Python, execute the following command:
 
 ```bash
-python app/api.py
+python app.py
 ```
 
 The server will start running on http://localhost:5000 by default.
@@ -100,15 +100,43 @@ docker run -p 5000:5000 my-flask-app
 - **URL:** `/extract_text`
 - **Method:** POST
 - **Request Body:**
-  - `image` (string): Base64 encoded image data
-- **Response:**
-  - `extracted_text` (string): Extracted text from the image
+  - `image` (file): An image file to extract text from.
+- **Response:** Returns a JSON object with the extracted text or an error.
+
+Example Request:
+
+```bash
+curl -X POST http://localhost:5000/extract_text -F "image=@path_to_your_image.jpg"
+```
+
+Example Response:
+
+```json
+{
+  "extracted_text": "The extracted text will be here."
+}
+```
+
+#### Generate Store Menu Image
+
+- **URL:** `/generate_menu_image`
+- **Method:** POST
+- **Request Body:**
+  - `products` (list): A list of products, where each product is a dictionary with a `name` and `price` key.
+  - `description` (string): A description of the shop.
+- **Response:** Returns a JSON object with the URL of the generated menu image or an error.
 
 Example Request:
 
 ```json
 {
-  "image_base64": "base64_encoded_image_data_here"
+  "products": [
+    {"name": "Coffee", "price": 2.5},
+    {"name": "Sandwich", "price": 5.0},
+    {"name": "Salad", "price": 7.0},
+    {"name": "Juice", "price": 3.5}
+  ],
+  "description": "A charming little bakery known for its fresh bread and pastries."
 }
 ```
 
@@ -116,7 +144,7 @@ Example Response:
 
 ```json
 {
-  "extracted_text": "Extracted text will be returned here."
+  "image_url": "URL_of_the_generated_image"
 }
 ```
 
@@ -127,4 +155,3 @@ Contributions are welcome! If you find any issues or want to add new features, f
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
