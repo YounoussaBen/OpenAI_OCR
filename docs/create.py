@@ -7,11 +7,10 @@ api_key = os.getenv("OPENAI_API_KEY")
 # Initialize the OpenAI client with your API key
 client = OpenAI(api_key=api_key)
 
-response = client.images.generate(
-  model="dall-e-3",
-  prompt="Barcelona lifting the champions league",
+response = client.images.create_variation(
+  model="dall-e-2",
+  image=open("app/static/images/menu.png", "rb"),  # Pass the image data instead of the file object
   size="1024x1024",
-  quality="standard",
   n=1,
 )
 

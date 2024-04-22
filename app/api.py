@@ -90,7 +90,7 @@ def generate_store_menu_image(product_list, description):
         prompt += f"- {product}: ${price}\n"
     
     # Generate the image using DALL-E API
-    response = client.images.generate(model="dall-e",
+    response = client.images.generate(model="dall-e-3",
     prompt=prompt,
     size="1024x1024",
     n=1,
@@ -137,6 +137,45 @@ def generate_menu_image():
         return jsonify({'image_url': image_url}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/create_image_variation', methods=['POST'])
+def create_image_variation():
+    """
+    Endpoint for creating a variation of an input image.
+
+    Expects a POST request with an image file.
+    """
+    try:
+        # Check if the request contains an image file
+        if 'image' not in request.files:
+            return jsonify({'error': 'No image found in request'}), 400
+        
+        image_file = request.files['image']
+        
+        # Check if the image file is empty
+        if image_file.filename == '':
+            return jsonify({'error': 'No image selected for uploading'}), 400
+        
+        # Read the content of the image file
+        image_data = image_file.read()
+        
+        # Call the OpenAI client to create a variation of the input image
+        response = client.images.create_variation(
+            model="dall-e-2",
+            image=image_data,
+            n=1,
+            size="1024x1024"
+        )
+
+        # Get the URL of the generated variation image
+        image_url = response.data[0].url
+        
+        return jsonify({'image_url': image_url}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 # Add Swagger UI to the application
 swagger_url = "/swagger"
