@@ -1,6 +1,6 @@
-# API Documentation
+# Open Image API
 
-This API provides several endpoints to extract text from images using OpenAI's GPT-4 with Vision model and generate an image of a store menu using OpenAI's DALL-E model.
+This API provides several endpoints to extract text from images using OpenAI's GPT-4 with Vision model and generate an image of a store menu using OpenAI's DALL-E model. Additionally, it offers an endpoint to create variations of input images.
 
 ## Table of Contents
 
@@ -148,6 +148,28 @@ Example Response:
 }
 ```
 
+#### Create Image Variation
+
+- **URL:** `/create_image_variation`
+- **Method:** POST
+- **Request Body:**
+  - `image` (file): An image file for which a variation is to be created.
+- **Response:** Returns a JSON object with the URL of the generated variation image or an error.
+
+Example Request:
+
+```bash
+curl -X POST http://localhost:5000/create_image_variation -F "image=@path_to_your_image.jpg"
+```
+
+Example Response:
+
+```json
+{
+  "image_url": "URL_of_the_generated_variation_image"
+}
+```
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or want to add new features, feel free to open a pull request.
@@ -155,3 +177,4 @@ Contributions are welcome! If you find any issues or want to add new features, f
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+```
